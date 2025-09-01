@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-// ⬇️ use RELATIVE paths (no @/)
+// ⬇️ RELATIVE imports (no "@/")
 import { ruleBasedReply } from "../../../lib/rules";
 import { llmReply } from "../../../lib/llm";
 
