@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { ruleBasedReply } from "@/lib/rules";
-import { llmReply } from "@/lib/llm";
+import { ruleBasedReply } from "../../../lib/rules";
+import { llmReply } from "../../../lib/llm";
+
 
 const BodySchema = z.object({ message: z.string().min(1, "message is required") });
 
