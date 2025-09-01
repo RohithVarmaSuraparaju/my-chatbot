@@ -5,9 +5,9 @@ type Msg = { role: "user" | "bot"; text: string };
 
 export default function Chat() {
   const [input, setInput] = useState("");
-  const [msgs, setMsgs] = useState<Msg[]>([{
-    role: "bot", text: "Hi! I’m your chatbot. Ask me anything." 
-  }]);
+  const [msgs, setMsgs] = useState<Msg[]>([
+    { role: "bot", text: "Hi! I’m your chatbot. Ask me anything." }
+  ]);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,11 +47,9 @@ export default function Chat() {
       <div ref={listRef} className="flex-1 overflow-y-auto bg-gray-50 rounded-xl p-4 border">
         {msgs.map((m, i) => (
           <div key={i} className={`mb-3 ${m.role === "user" ? "text-right" : "text-left"}`}>
-            <span
-              className={`inline-block px-3 py-2 rounded-2xl shadow-sm ${
-                m.role === "user" ? "bg-blue-100" : "bg-white"
-              }`}
-            >
+            <span className={`inline-block px-3 py-2 rounded-2xl shadow-sm ${
+              m.role === "user" ? "bg-blue-100" : "bg-white"
+            }`}>
               {m.text}
             </span>
           </div>
@@ -74,10 +72,6 @@ export default function Chat() {
           Send
         </button>
       </div>
-
-      <p className="text-xs text-gray-500 mt-2">
-        Mode: <code>{process.env.NEXT_PUBLIC_CHAT_MODE || "(server decides)"}</code>
-      </p>
     </div>
   );
 }
