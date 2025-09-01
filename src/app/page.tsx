@@ -1,5 +1,6 @@
 "use client";
-import Chat from "../components/Chat";
+import Chat from "../components/Chat";  // ← relative
+
 
 export default function Page() {
   return (
