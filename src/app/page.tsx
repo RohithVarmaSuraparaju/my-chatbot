@@ -1,5 +1,4 @@
 "use client";
-// ⬇️ RELATIVE import (no "@/")
 import Chat from "../components/Chat";
 
 export default function Page() {
