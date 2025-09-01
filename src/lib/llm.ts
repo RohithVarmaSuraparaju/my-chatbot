@@ -1,8 +1,6 @@
 export async function llmReply(userMessage: string): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    throw new Error("Missing OPENAI_API_KEY. Set it in Vercel env.");
-  }
+  if (!apiKey) throw new Error("Missing OPENAI_API_KEY. Set it in Vercel env.");
 
   const base = process.env.OPENAI_BASE_URL || "https://api.openai.com";
 
@@ -16,9 +14,9 @@ export async function llmReply(userMessage: string): Promise<string> {
       model: "gpt-4o-mini",
       messages: [
         { role: "system", content: "You are a helpful assistant. Keep answers concise." },
-        { role: "user", content: userMessage },
+        { role: "user", content: userMessage }
       ],
-      temperature: 0.7,
+      temperature: 0.7
     }),
   });
 
@@ -28,6 +26,5 @@ export async function llmReply(userMessage: string): Promise<string> {
   }
 
   const data = await res.json();
-  const content = data?.choices?.[0]?.message?.content?.trim();
-  return content || "(No response)";
+  return data?.choices?.[0]?.message?.content?.trim() || "(No response)";
 }
