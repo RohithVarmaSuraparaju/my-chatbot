@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+// ⬇️ use RELATIVE paths (no @/)
 import { ruleBasedReply } from "../../../lib/rules";
 import { llmReply } from "../../../lib/llm";
 
-
 const BodySchema = z.object({ message: z.string().min(1, "message is required") });
-
 export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
