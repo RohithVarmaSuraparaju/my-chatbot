@@ -1,5 +1,6 @@
+"use client";
+// ⬇️ use RELATIVE path (no @/)
 import Chat from "../components/Chat";
-
 
 export default function Page() {
   return (
